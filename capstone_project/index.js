@@ -4,7 +4,7 @@ import multer from "multer";
 import path from "path";
 
 const app = express();
-const port = 3000;
+const port = 10000;
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 

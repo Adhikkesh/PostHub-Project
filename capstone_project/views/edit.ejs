@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/create_styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('header.ejs') %>
+    <h1>
+        Edit here 👇 
+    </h1>
+    <form action="/submit" method="POST">
+        <div class="container">
+            <div class="h">
+                <div class="prof">
+                    <img src="images/profile.png">
+                    <p>Name</p>
+                </div>
+                <div class="time">
+                    <p>id: <%= a.id %></p>
+                    <p>time: <%- new Date().getTime() %></p>
+                </div>
+            </div>
+            <div class="content">
+                <div class="text">
+                    <textarea id="message" name="message" rows="11" cols="81"><%= a.message%></textarea>
+                </div>
+            </div>
+            <div class="f">
+                <input type="hidden" name="id" value="<%= a.id %>">
+                <button type="submit" class="btn btn-outline-info edit">
+                    <img src="images/edit.png">
+                    <p>Edit</p>
+                </button>                                
+                
+            </div>
+        </div>
+    </form>
+    
+    <%- include('footer.ejs') %>
+</body>
+</html>

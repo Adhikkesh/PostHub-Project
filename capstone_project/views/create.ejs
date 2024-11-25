@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/create_styles.css">
+    <title>create</title>
+</head>
+<body>
+    <%- include('header.ejs') %>
+    <h1>
+        Enter the Content Below 👇 
+    </h1>
+    <div class="blogs">
+        <form action="/post" method="POST">
+            <div class="container">
+                <div class="h">
+                    <div class="prof">
+                        <img src="<%= image %>">
+                        <p><%= name %></p>
+                    </div>
+                    <div class="time">
+                        <p><% new Date().getTime()%></p>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="text">
+                        <textarea id="message" name="message" rows="11" cols="81"></textarea>
+                    </div>
+                </div>
+                <div class="f">
+                    <button type="submit" class="btn btn-outline-info edit" >
+                        <img src="images/edit.png">
+                        <p>Create</p>
+                    </button>  
+                </div>
+            </div>
+        </form>
+        
+    </div>
+    <%- include('footer.ejs') %>
+</body>
+</html>

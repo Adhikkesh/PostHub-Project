@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <title>Home</title>
+</head>
+<body>
+    <%- include("header.ejs") %>
+        <div class="button">
+            <div class="create" onclick="window.location.href='/create'">
+                <div class="">
+                    <img src="images/create.png">
+                    <p>create</p>
+                </div>
+            </div>
+        </div>
+
+        <% if(locals.p && locals.p.length > 0) { %>      
+            <div class="blogs">
+                <% for(let i=0;i<locals.p.length;i++) { %> 
+                    <form action="/edit" method="POST">
+                        <div class="container">
+                            <div class="h">
+                                <div class="prof">
+                                    <% console.log(image) %>
+                                    <img src="<%= image %>">
+                                    <p><%= name %></p>
+                                </div>
+                                <div class="time">
+                                    <p>id: <%= p[i].id%></p>
+                                    <p><%- `${p[i].h}:${p[i].m}:${p[i].s}` %></p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <div class="text">
+                                    <textarea id="message" name="message" rows="11" cols="81"><%= p[i].message%></textarea>
+                                </div>
+                            </div>
+                            <div class="f">
+                                <input type="hidden" name="id" value="<%= p[i].id %>">
+                                <button type="submit" class="btn btn-outline-info edit">
+                                    <img src="images/edit.png">
+                                    <p>Edit</p>
+                                </button>                                
+                                
+                            </div>
+                        </div>
+                    </form>
+                    
+                <% } %>
+            </div>
+
+        <% } else { %>
+            <h1>Post Something by creating 🤸 </h1>
+        <% } %>
+</body>
+</html>
